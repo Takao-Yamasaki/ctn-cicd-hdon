@@ -38,4 +38,3 @@ curl localhost:8080
     </body>
 </html>
 ```
-// TODO: 写真を添付する
