@@ -1,5 +1,20 @@
 # Dockerコンテナ・CI/CDパイプライン入門
+## セットアップ
+Makefileのコマンドに`peco`を使用しているので、初回のみインストール
+- Cloud9
+```
+apt install peco
+```
+- mac(local)
+```
+brew install peco
+```
+次のコマンドを使用すると、利用できるコマンドが表示されるので、実行したいコマンドを選択
+```
+make
+```
 
+## makefileで使用しているコマンド
 - イメージの作成
 ```
 docker image build -t ctn-cicd-hdon .
@@ -37,4 +52,8 @@ curl localhost:8080
         <h3><font color="#3CB371">このページはECS環境で動いています</font></h3>
     </body>
 </html>
+```
+- コンテナへのログイン
+```
+docker exec -it local-run bash
 ```
