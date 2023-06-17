@@ -4,6 +4,10 @@
 ```
 docker image build -t ctn-cicd-hdon .
 ```
+- イメージをキャッシュを使用せずビルド
+```
+docker image build --no-cache -t ctn-cicd-hdon .
+```
 - イメージのビルド確認
 ```
 docker image ls
@@ -34,3 +38,4 @@ curl localhost:8080
     </body>
 </html>
 ```
+// TODO: 写真を添付する
