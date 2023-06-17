@@ -3,6 +3,12 @@
 
 build: ## Build docker image
 		docker image build -t ctn-cicd-hdon .
+build-prod: ## Build docker image for prod
+		docker imaga build -t 786832920677.dkr.ecr.ap-northeast-1.amazonaws.com/ctn-cicd-hdon-repo:0.0.1 .
+docker-login: ## Docker login from AWS Cloud9
+		aws ecr get-login-password | docker login --username AWS --password-stdin 786832920677.dkr.ecr.ap-northeast-1.amazonaws.com
+push-prod: ## push to ECR docker image for prod
+		docker push 786832920677.dkr.ecr.ap-northeast-1.amazonaws.com/ctn-cicd-hdon-repo:0.0.1
 rebuild: ## Build docker image without using cache
 		docker image build --no-cache -t ctn-cicd-hdon .
 ls: ## Check docker image status
