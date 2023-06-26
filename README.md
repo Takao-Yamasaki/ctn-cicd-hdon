@@ -1,14 +1,44 @@
 # Dockerコンテナ・CI/CDパイプライン入門
+
+## 概要
+- ECS(Fargate)を使用して、ローリングアップデートを実施
+- 作業用に`Cloud9`を使用
+- CI/CDツールとして、`CodePipeline`(`CodeCommit`/`CodeBuild`/`CodeDeply`)を使用
+- 設定ファイルには、`buildspec.yml`を使用
+
 ## セットアップ
-Makefileのコマンドに`peco`を使用しているので、初回のみインストール
-- Cloud9
+- Makefileのコマンドに`peco`を使用しているので、初回のみインストール
+### Cloud9(EC2)
+- wgetで圧縮ファイルを取得
 ```
-apt install peco
+wget https://github.com/peco/peco/releases/download/v0.5.11/peco_linux_amd64.tar.gz
 ```
-- mac(local)
+- 圧縮ファイルを解凍
+```
+tar xvfz peco_linux_amd64.tar.gz
+```
+- 解凍したディレクトリに移動
+```
+cd peco_linux_amd64/
+```
+- 権限を付与
+```
+chmod 100 peco
+```
+- pecoを`/usr/local/bin/`に移動させる
+```
+sudo mv peco /usr/local/bin/
+```
+- 不要なディレクトリを削除
+```
+rm -rf peco_linux_amd64 peco_linux_amd64.tar.gz
+```
+
+### mac(local)
 ```
 brew install peco
 ```
+### 起動方法
 次のコマンドを使用すると、利用できるコマンドが表示されるので、実行したいコマンドを選択
 ```
 make
